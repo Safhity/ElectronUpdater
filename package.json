@@ -1,0 +1,90 @@
+{
+  "name": "safhity",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "Safhity",
+  "productName": "Safhity",
+  "publisher": "safhity.futures.co",
+  "author": "safhity",
+  "private": true,
+  "repository": "https://github.com/Safhity/ElectronUpdater",
+  "publish": {
+    "provider": "github",
+    "releaseType": "release"
+  },
+  "homepage": ".",
+  "build": {
+    "productName": "Safhity",
+    "appId": "Safhity",
+    "linux": {
+      "category": "Utility",
+      "icon": "icon.png",
+      "target": [
+        "deb",
+        "appImage"
+      ]
+    },
+    "deb": {
+      "depends": [
+        "gconf2",
+        "gconf-service",
+        "libnotify4",
+        "libappindicator1",
+        "libxtst6",
+        "libnss3"
+      ]
+    },
+    "win": {
+      "icon": "icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "icon": "icon.icns",
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "node_modules/**/*",
+      "public/**/*",
+      "index.html",
+      "main.js",
+      "preload.js",
+      "server.js",
+      "package.json",
+      "icon.icns",
+      "icon.ico",
+      "icon.png"
+    ],
+    "extraMetadata": {
+      "main": "main.js"
+    },
+    "directories": {
+      "buildResources": "build"
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "electron:win": "electron-builder -w -c.extraMetadata.main=main.js",
+    "electron:mac": "electron-builder -m -c.extraMetadata.main=main.js",
+    "electron:linux": "electron-builder -l -c.extraMetadata.main=main.js"
+  },
+  "devDependencies": {
+    "electron": "^25.1.0",
+    "electron-builder": "^23.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "electron-dl": "^3.5.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-window-state": "^5.0.3",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "os": "^0.1.2"
+  }
+}
